@@ -1,4 +1,4 @@
-require("./db/config");
+const dotenv = require("dotenv");
 const User = require("./db/User");
 const Product = require("./db/Product");
 const Jwt = require("jsonwebtoken");
@@ -8,6 +8,9 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+
+dotenv.config({});
+require("./db/config");
 
 //Middlewares
 app.use(express.json());
