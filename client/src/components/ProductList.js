@@ -9,15 +9,18 @@ const ProductList = () => {
   }, []);
 
   const getProducts = async () => {
-    const result = await fetch("http://localhost:3000/products");
+    const result = await fetch("https://ujju-shop.onrender.com/products");
     const data = await result.json();
     setProducts(data);
   };
 
   const deleteButton = async (_id) => {
-    const result = await fetch(`http://localhost:3000/product/${_id}`, {
-      method: "DELETE",
-    });
+    const result = await fetch(
+      `https://ujju-shop.onrender.com/product/${_id}`,
+      {
+        method: "DELETE",
+      }
+    );
     const data = await result.json();
     if (data) {
       getProducts();
@@ -29,7 +32,9 @@ const ProductList = () => {
   const searchHandle = async (e) => {
     const key = e.target.value;
     if (key) {
-      const result = await fetch(`http://localhost:3000/search/${key}`);
+      const result = await fetch(
+        `https://ujju-shop.onrender.com/search/${key}`
+      );
       const data = await result.json();
       if (data) {
         setProducts(data);
